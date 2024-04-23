@@ -28,7 +28,7 @@ function sendRequest(url) {
         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`);
+                    alert(`Request failed with status ${response.status} ${response.statusText}`);
                 }
                 return response.json();
             })
@@ -36,9 +36,9 @@ function sendRequest(url) {
                 resolve(data);
             })
             .catch(error => {
-                reject(new Error("Request failed"));
+                reject(error);
             });
-    });
+    })
 }
 
 
